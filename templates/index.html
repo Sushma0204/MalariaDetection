@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malaria Detection and Image Prediction</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet">
+    <style>
+        .navbar {
+            background-color: #424242;
+            padding: 8px 0;
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+
+        .nav-item {
+            list-style-type: none;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #FB8C00 !important;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .malaria-detection-text {
+            color: #000000;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 36px;
+        }
+
+        .text {
+            font-size: 48px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .text-orange {
+            color: #FF5F00;
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        .text-gray {
+            color: #424242;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #FF5F00;
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #FB8C00;
+        }
+
+        button {
+            background-color: #FF5F00;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 50px;
+            border: none;
+        }
+
+        .dashboardbtn {
+            background-color: #ffffff;
+            color: #424242;
+            /* Gray text */
+            font-weight: bold;
+            /* Bold text */
+            padding: 5px 10px;
+            /* Reduced padding */
+            border: none;
+            border-radius: 50px;
+        }
+
+        .dashboardbtn a {
+    color: #424242;
+}
+
+        .dashboardbtn:hover {
+            background-color: #ffffff;
+            color: #424242;
+        }
+
+
+        button:hover {
+            background-color: #FB8C00;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            background-color: #424242;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+        }
+
+        .info-box {
+            background-color: #424242;
+            color: white;
+            height: 400px;
+            padding: 20px;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .info-box:hover {
+            background-color: #FB8C00;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/">Malaria Detection</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4">
+                <span class="text-orange">WELCOME TO</span>
+                <br>
+                <span class="text-gray">MALARIA DETECTION</span>
+
+                <p>
+                    This website provides a simple and user-friendly platform where individuals can quickly determine
+                    whether they are infected with malaria. By uploading an image of a blood smear, users can receive an
+                    automated assessment of their malaria status. You can easily access this feature from the homepage,
+                    which is available in the navigation bar or by clicking the button below. This tool is designed to
+                    offer fast and reliable malaria detection, empowering users to make informed health decisions.
+                </p>
+                <button>
+                    <a class="nav-link text-white" href="/home">Go to Home</a>
+                </button>
+            </div>
+
+            <!-- Right Column (Image Upload Form with Info Box) -->
+            <div class="col-md-6 text-center">
+                <div class="info-box">
+                    <p>The Vision Transformer and EfficientNetB0 models stand out as the most effective for automated
+                        malaria detection, offering high accuracy and balanced precision-recall tradeoff, making them
+                        suitable for resource-limited settings. Additionally, analysis of malaria data from 2010 to 2017
+                        highlights the WHO African region, particularly Uganda, Zambia, and Zimbabwe, as the most
+                        affected areas. These findings emphasize the need for robust diagnostic tools and targeted
+                        interventions to mitigate malaria's impact effectively.</p>
+                    <br>
+                    <button class="dashboardbtn">
+                        <a class="nav-link " href="/dashboard">Go to Dashboard</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

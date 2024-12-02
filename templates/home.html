@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malaria Detection</title>
+  <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/main.css" rel="stylesheet">
+</head>
+<style>
+  .info-box {
+    background-color: #424242;
+    color: #ffffff;
+    height: 550px;
+    padding: 20px;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    font-size: 15px;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .upload-section label {
+    background-color: #d3d3d3;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .upload-section button {
+    background-color: #FF5F00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    display: inline-block;
+  }
+
+  .upload-section button:hover {
+    background-color: #FF8C00;
+  }
+
+</style>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #FF5F00;">
+    <div class="container">
+      <a class="navbar-brand" href="/">Malaria Detection</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/dashboard">Dashboard</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Section -->
+  <div class="container mt-4">
+    <div class="row align-items-center">
+      <!-- Left Column (Instructions) -->
+      <div class="col-md-6 mb-4">
+        <div class="info-box">
+          <p>
+            <strong>Step 1: Choose an Image</strong><br>
+            Click the "Choose Image" button. A file dialog will open, allowing you to browse your device. Select the
+            blood smear sample image you want to upload. Once selected, the image file will be prepared for uploading.
+            <br><br>
+
+            <strong>Step 2: Preview the Image</strong><br>
+            After selecting the image, a preview will appear below the "Choose Image" button, allowing you to confirm
+            that the correct image has been uploaded.
+            <br><br>
+
+            <strong>Step 3: Click on "Predict"</strong><br>
+            Once the image is uploaded, click the "Predict" button to start the analysis. The system will begin
+            processing the image.
+            <br><br>
+
+            <strong>Step 4: View the Prediction Result</strong><br>
+            After a short wait, the result will be displayed on the screen, showing whether the sample is infected or
+            not infected with malaria.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Column (Image Upload Form) -->
+      <div class="col-md-6 text-center upload-section">
+        <h3 class="text-dark mb-4">Upload Image for Prediction</h3>
+        <form id="predictionForm" enctype="multipart/form-data">
+          <label for="inputImage" class="btn btn-lg">Choose Image</label>
+          <input type="file" id="inputImage" accept="image/*" required style="display:none;">
+          <div class="image-preview mb-3" style="display:none;">
+            <img id="imagePreview" src="" alt="Image Preview" class="img-fluid rounded shadow">
+          </div>
+          <button type="button" id="btn-predict" class="btn btn-lg">Predict</button>
+        </form>
+        <p id="predictionResult" class="text-dark mt-4"></p>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JavaScript -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
